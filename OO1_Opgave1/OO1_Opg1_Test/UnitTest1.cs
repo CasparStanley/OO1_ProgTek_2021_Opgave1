@@ -1,8 +1,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ObligatoriskOpgave1_1_CSharp_UnitTest;
+using OO1_Opgave1;
 using System;
 
-namespace FootballPlayerTest
+namespace OO1_Opg1_Test
 {
     [TestClass]
     public class UnitTest1
@@ -13,6 +13,35 @@ namespace FootballPlayerTest
         public void Init()
         {
             _footballPlayer = new FootballPlayer(0, "Michael Laudrup", 690000, 10);
+        }
+
+        // Testing Constructor -------------------------------------------------------------------- Testing Constructor
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void TestConstructorName1()
+        {
+            _ = new FootballPlayer(0, "", 10, 1);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void TestConstructorName2()
+        {
+            _ = new FootballPlayer(0, "Na", 10, 1);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void TestConstructorPrice()
+        {
+            _ = new FootballPlayer(0, "Name", -1, 1);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void TestConstructorShirtNo()
+        {
+            _ = new FootballPlayer(0, "Name", 10, 101);
         }
 
         // Testing ID ----------------------------------------------------------------------------- Testing ID
@@ -81,5 +110,14 @@ namespace FootballPlayerTest
         {
             _footballPlayer.ShirtNumber = 101;
         }
+
+        // Testing ToString ----------------------------------------------------------------------- Testing ToString
+        [TestMethod]
+        public void TestToString()
+        {
+            Assert.AreEqual("Football Player\n ID: 0, Name: Michael Laudrup, Price: 690000, Shirt Number: 10", _footballPlayer.ToString());
+        }
+
+        // Code coverage = 100%!
     }
 }

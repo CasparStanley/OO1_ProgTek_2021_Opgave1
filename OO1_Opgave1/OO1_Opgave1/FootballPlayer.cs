@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ObligatoriskOpgave1_1_CSharp_UnitTest
+namespace OO1_Opgave1
 {
     public class FootballPlayer
     {
@@ -24,11 +24,11 @@ namespace ObligatoriskOpgave1_1_CSharp_UnitTest
         public string Name
         {
             get => _name;
-            set 
+            set
             {
                 CheckName(value);
 
-                _name = value; 
+                _name = value;
             }
         }
 
@@ -69,7 +69,7 @@ namespace ObligatoriskOpgave1_1_CSharp_UnitTest
         /// <param name="name">The name of the Football Player</param>
         /// <param name="price">The price the Football Player was last sold for</param>
         /// <param name="shirtNo">The current number on the Football Player's shirt</param>
-        public FootballPlayer (int id, string name, double price, int shirtNo)
+        public FootballPlayer(int id, string name, double price, int shirtNo)
         {
             Id = id;
 
